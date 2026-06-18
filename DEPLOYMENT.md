@@ -33,6 +33,8 @@ The dashboard expects these local files when all features are enabled:
 - `web/app.js`
 - `web/styles.css`
 
+The committed `train.parquet` and `test.parquet` files are tiny synthetic demo splits for the public Docker demo. Replace them with locally generated splits before running new training, drift analysis, or research evaluation.
+
 The API can start without every artifact, but model prediction, drift checks, and report links depend on the files above.
 
 ## Environment
@@ -62,7 +64,7 @@ For a public deployment:
 ## GitHub Checklist
 
 - Commit source code, configuration templates, docs, Docker files, tests, and the minimal runtime artifacts needed for the demo.
-- Keep the included model and small train/test splits only if you want the Docker image to run immediately after cloning.
+- Keep only tiny synthetic demo train/test splits in the public repo unless every source dataset license allows redistribution.
 - Do not commit raw datasets, generated datasets, full unified datasets, logs, cache folders, local notebooks, or private notes.
 - Recreate local artifacts by running the preprocessing, training, generation, and evaluation commands from `README.md`.
 - Use GitHub Releases or external storage for larger artifacts.

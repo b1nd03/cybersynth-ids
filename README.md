@@ -64,7 +64,7 @@ models/                Trained model artifact for the Docker demo
 outputs/               Metrics and report outputs
 ```
 
-Raw downloads, generated synthetic datasets, logs, notebooks, cache folders, and private notes are ignored by Git. The public repository keeps only the small runtime artifacts needed for the Docker demo: the trained model, train/test splits, dataset quality report, metrics, and evaluation reports.
+Raw downloads, generated synthetic datasets, logs, notebooks, cache folders, and private notes are ignored by Git. The public repository keeps only the small runtime artifacts needed for the Docker demo: the trained model, tiny demo-only synthetic train/test splits, dataset quality report, metrics, and evaluation reports.
 
 ## Quick Start
 
@@ -91,6 +91,8 @@ For full preprocessing, training, generation, and evaluation work:
 ```powershell
 pip install -r requirements-pipeline.txt
 ```
+
+The committed `data/processed/train.parquet` and `data/processed/test.parquet` files are tiny synthetic demo splits so the dashboard can run after cloning. Regenerate full local splits from your own dataset downloads before training or reporting new results.
 
 For tests and linting tools:
 

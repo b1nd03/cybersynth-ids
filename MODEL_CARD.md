@@ -42,6 +42,8 @@ Current validation snapshot:
 
 CyberSynth IDS uses a normalized network-flow schema so multiple supported IDS datasets can be mapped into consistent columns before training. Dataset-source and category metadata remain available for analysis without becoming direct model inputs.
 
+The public repository includes tiny synthetic demo splits under `data/processed/` so the Docker dashboard can run after cloning. Full processed train/test rows are not required in the public repo and should be regenerated locally from datasets the user is allowed to use.
+
 ## Limitations
 
 Model behavior depends on the datasets used during preprocessing and training. Important review points include dataset bias, distribution shift, feature compatibility, and attack families that may be underrepresented in the training split.

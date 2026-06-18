@@ -60,3 +60,5 @@ Retrain the model when:
 For strongest results, validate new network sources with held-out real traffic and retrain when drift changes the feature distribution.
 
 Generated rows are designed for controlled experiments, augmentation, balancing, and pipeline testing.
+
+The public repository ships tiny synthetic demo splits for runtime convenience. Full processed train/test splits should be regenerated locally from approved dataset sources.
