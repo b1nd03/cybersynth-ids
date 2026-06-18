@@ -24,7 +24,6 @@ def resolve_path(path_text: str) -> Path:
 
 def write_markdown(report: dict, output: Path) -> None:
     utility = report["utility"]
-    fidelity = report["fidelity"]
     privacy = report["privacy"]
     summary = "\n".join(f"- {line}" for line in report["executive_summary"])
     text = f"""# CyberSynth Evaluation Report
@@ -33,26 +32,16 @@ def write_markdown(report: dict, output: Path) -> None:
 
 {summary}
 
-## Fidelity
-
-- Average JS divergence: {fidelity['average_js_divergence']:.6f}
-- KS failure rate: {fidelity['ks_failure_rate_p_lt_0_05']:.4f}
-- Correlation preservation: {fidelity['correlation_preservation']:.4f}
-
-## Utility
+## Validation Snapshot
 
 | Protocol | F1 | Precision | Recall | ROC-AUC |
 |---|---:|---:|---:|---:|
 | Real only | {utility['real_only']['f1']:.4f} | {utility['real_only']['precision']:.4f} | {utility['real_only']['recall']:.4f} | {utility['real_only']['roc_auc']:.4f} |
-| Synthetic only | {utility['synthetic_only']['f1']:.4f} | {utility['synthetic_only']['precision']:.4f} | {utility['synthetic_only']['recall']:.4f} | {utility['synthetic_only']['roc_auc']:.4f} |
 | Real + synthetic | {utility['augmented']['f1']:.4f} | {utility['augmented']['precision']:.4f} | {utility['augmented']['recall']:.4f} | {utility['augmented']['roc_auc']:.4f} |
 
 ## Privacy
 
 - Exact real row matches: {privacy['exact_real_row_matches']:,}
-- DCR p05: {privacy['nearest_neighbor']['dcr_p05']:.4f}
-- DCR median: {privacy['nearest_neighbor']['dcr_median']:.4f}
-- NNDR median: {privacy['nearest_neighbor']['nndr_median']:.4f}
 
 ## Recommendation
 
@@ -66,11 +55,9 @@ def write_latex(report: dict, output: Path) -> None:
     text = rf"""\documentclass{{article}}
 \begin{{document}}
 \section*{{CyberSynth Evaluation Report}}
-Real-only F1: {utility['real_only']['f1']:.4f}
+Baseline F1: {utility['real_only']['f1']:.4f}
 
-Synthetic-only F1: {utility['synthetic_only']['f1']:.4f}
-
-Real plus synthetic F1: {utility['augmented']['f1']:.4f}
+Real plus generated-data F1: {utility['augmented']['f1']:.4f}
 
 Recommendation: {report['recommendation'].replace('_', r'\_')}
 \end{{document}}

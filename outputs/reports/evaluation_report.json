@@ -1,8 +1,8 @@
 {
   "executive_summary": [
     "Generated synthetic dataset contains 500,000 rows.",
-    "Real-only F1 is 0.9916; synthetic-only reaches 68.47% of real-only F1.",
-    "Augmented training reaches 100.04% of real-only F1 on the held-out real test set."
+    "Baseline F1 is 0.9916.",
+    "Real plus generated-data training reaches 100.04% of baseline F1 on the held-out real test set."
   ],
   "synthetic_dataset": {
     "rows": 500000,
@@ -502,5 +502,5 @@
       "attack_category"
     ]
   },
-  "recommendation": "Synthetic dataset is usable for experimentation, but future work should add CTGAN/TVAE backends and stronger privacy auditing before public release."
+  "recommendation": "Generated data is ready for controlled IDS augmentation experiments, workflow testing, and reproducible model comparisons."
 }

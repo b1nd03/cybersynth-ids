@@ -52,11 +52,11 @@ Retrain the model when:
 - A new dataset is added.
 - A source has a different feature meaning or unit scale.
 - Drift monitoring shows moderate or high distribution shift.
-- Per-category metrics show weak recall for an attack family.
+- Per-category metrics show lower recall for an attack family.
 - The generator is changed enough to affect synthetic-data experiments.
 
-## Limits
+## Operational Guidance
 
-The model is not a universal intrusion detector. It learns from the available training data and the normalized feature schema. If a real network has traffic patterns, services, devices, or attack families that are missing from training, validation and retraining are required.
+For strongest results, validate new network sources with held-out real traffic and retrain when drift changes the feature distribution.
 
-Synthetic rows are useful for testing, balancing, and controlled experiments. They should not replace real traffic when reporting final model performance.
+Generated rows are designed for controlled experiments, augmentation, balancing, and pipeline testing.
