@@ -40,10 +40,11 @@ src/evaluation/        Model training and synthetic-data evaluation scripts
 src/generation/        Synthetic dataset generator
 src/web/               FastAPI application
 web/                   Dashboard HTML, CSS, and JavaScript
-outputs/               Local metrics and report outputs
+models/                Trained model artifact for the Docker demo
+outputs/               Metrics and report outputs
 ```
 
-Large local files such as raw datasets, processed datasets, trained models, logs, local reports, cache folders, and private notes are ignored by Git.
+Raw downloads, generated synthetic datasets, logs, notebooks, cache folders, and private notes are ignored by Git. The public repository keeps only the small runtime artifacts needed for the Docker demo: the trained model, train/test splits, dataset quality report, metrics, and evaluation reports.
 
 ## Quick Start
 

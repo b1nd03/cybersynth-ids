@@ -11,6 +11,8 @@ CyberSynth Synthetic Dataset v1.0 is a 500,000-row synthetic cybersecurity datas
 - Evaluation JSON: `outputs/reports/evaluation_report.json`
 - Evaluation Markdown: `outputs/reports/evaluation_report.md`
 
+The generated synthetic dataset is not committed to the public repository. Regenerate it locally with the command in `README.md` when needed.
+
 ## Generation Method
 
 Generator: `conditioned_statistical_bootstrap`

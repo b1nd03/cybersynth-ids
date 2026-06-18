@@ -61,8 +61,9 @@ For a public deployment:
 
 ## GitHub Checklist
 
-- Commit source code, configuration templates, docs, and small sample-free metadata only.
-- Do not commit raw datasets, processed datasets, generated datasets, trained models, logs, cache folders, local notebooks, or private notes.
+- Commit source code, configuration templates, docs, Docker files, tests, and the minimal runtime artifacts needed for the demo.
+- Keep the included model and small train/test splits only if you want the Docker image to run immediately after cloning.
+- Do not commit raw datasets, generated datasets, full unified datasets, logs, cache folders, local notebooks, or private notes.
 - Recreate local artifacts by running the preprocessing, training, generation, and evaluation commands from `README.md`.
-- Use GitHub Releases or external storage only if you are allowed to publish trained model artifacts.
-- Keep the public repository focused on source code, docs, Docker files, and dependency files.
+- Use GitHub Releases or external storage for larger artifacts.
+- Keep the public repository focused on the runnable Docker demo and reproducible pipeline code.
