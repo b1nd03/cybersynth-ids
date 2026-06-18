@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Local data and model artifacts
+data/raw/
+data/synthetic/
+logs/
+test-results/
+notebooks/
+experiments/
+models/*
+outputs/*
+data/processed/*
+
+# Large downloaded archives and partial files
+*.zip
+*.gz
+*.tar
+*.tar.gz
+*.partial
+*.parquet
+
+# Minimal runtime artifacts kept for the public Docker demo
+!models/baseline_lightgbm.joblib
+!outputs/metrics/
+outputs/metrics/*
+!outputs/metrics/baseline_lightgbm_metrics.json
+!outputs/reports/
+outputs/reports/*
+!outputs/reports/evaluation_report.json
+!outputs/reports/evaluation_report.md
+!outputs/reports/evaluation_report.tex
+!data/processed/train.parquet
+!data/processed/test.parquet
+!data/processed/dataset_quality_report.json
+
+# Private notes
+RESEARCH_PAPER_DRAFT.md
+master_*_cybersecurity_dataset_generator.md
+local_notes/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

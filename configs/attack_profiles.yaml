@@ -1,0 +1,51 @@
+attack_profiles:
+  DDoS:
+    primary_indicators:
+      dst_port: [53, 80, 123, 389, 443, 1433, 1900, 5353]
+      protocol: [TCP, UDP]
+      flow_packets_per_sec: high
+      packet_length_mean: low_to_medium
+    temporal_pattern: volumetric_burst
+    generator_model: [conditioned_statistical_bootstrap, planned_ctgan]
+  DoS:
+    primary_indicators:
+      duration: short_to_medium
+      flow_bytes_per_sec: high
+      syn_flag_count: elevated
+      dst_port: [80, 443, 8080]
+    temporal_pattern: sustained_high_rate
+    generator_model: [conditioned_statistical_bootstrap, planned_ctgan]
+  BruteForce:
+    primary_indicators:
+      dst_port: [21, 22, 80, 443, 2222]
+      protocol: [TCP]
+      session_pattern: repeated_authentication
+    temporal_pattern: rapid_sequential
+    generator_model: [conditioned_statistical_bootstrap, planned_copula]
+  Reconnaissance:
+    primary_indicators:
+      dst_port: broad_scan
+      total_packets_fwd: low
+      rst_flag_count: elevated
+    temporal_pattern: sweep_sequential
+    generator_model: [conditioned_statistical_bootstrap, planned_copula]
+  Botnet:
+    primary_indicators:
+      dst_port: [23, 2323, 6667, 6697, 7547, 31337]
+      idle_mean: elevated
+      active_mean: periodic
+    temporal_pattern: periodic_beaconing
+    generator_model: [conditioned_statistical_bootstrap, planned_timegan]
+  Exploits:
+    primary_indicators:
+      dst_port: service_specific
+      src_bytes: medium_to_high
+      response_size_variance: high
+    temporal_pattern: interactive_manual
+    generator_model: [conditioned_statistical_bootstrap, planned_tvae]
+  Normal:
+    primary_indicators:
+      label: 0
+      rates: within_observed_training_distribution
+    temporal_pattern: mixed_benign
+    generator_model: [conditioned_statistical_bootstrap]

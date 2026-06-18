@@ -1,0 +1,322 @@
+datasets:
+
+  #  TIER 1 - Primary / Most Cited 
+
+  cic_ids2017:
+    name: "CIC-IDS2017"
+    tier: 1
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/cicids2017"
+    local_dir: "data/raw/cic_ids2017"
+    license: "Academic Use"
+    size_gb: 0.23
+    attack_types: ["DoS","DDoS","BruteForce","XSS","SQLInjection","Infiltration","Botnet","PortScan","Normal"]
+    label_column: "Label"
+    environment: "Enterprise"
+    citation: "Sharafaldin et al., 2018"
+
+  cic_ids2018:
+    name: "CIC-IDS2018"
+    tier: 1
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/csecicids2018"
+    local_dir: "data/raw/cic_ids2018"
+    license: "Academic Use"
+    size_gb: 0.60
+    attack_types: ["BruteForce","Heartbleed","Botnet","DoS","DDoS","WebAttacks","Infiltration","Normal"]
+    label_column: "Label"
+    environment: "Enterprise"
+    citation: "Sharafaldin et al., 2018"
+
+  ton_iot:
+    name: "TON_IoT"
+    tier: 1
+    download_method: "kaggle"
+    kaggle_dataset: "fadiabuzwayed/ton-iot-train-test-network"
+    local_dir: "data/raw/ton_iot"
+    license: "CC BY 4.0"
+    size_gb: 0.005
+    attack_types: ["Scanning","DoS","DDoS","Ransomware","Backdoor","Injection","MITM","XSS","Password","Vulnerability","Normal"]
+    label_column: "type"
+    environment: "IoT"
+    citation: "Alsaedi et al., 2020"
+
+  unsw_nb15:
+    name: "UNSW-NB15"
+    tier: 1
+    download_method: "kaggle"
+    kaggle_dataset: "mrwellsdavid/unsw-nb15"
+    local_dir: "data/raw/unsw_nb15"
+    license: "Academic Use"
+    size_gb: 0.15
+    attack_types: ["Fuzzers","Analysis","Backdoors","DoS","Exploits","Generic","Reconnaissance","Shellcode","Worms","Normal"]
+    label_column: "attack_cat"
+    environment: "Enterprise"
+    citation: "Moustafa & Slay, 2015"
+
+  kdd_cup_1999:
+    name: "KDD Cup 1999"
+    tier: 1
+    download_method: "kaggle"
+    kaggle_dataset: "galaxyh/kdd-cup-1999-data"
+    local_dir: "data/raw/kdd_cup_1999"
+    license: "Public Domain"
+    size_gb: 0.09
+    attack_types: ["DoS","R2L","U2R","Probing","Normal"]
+    label_column: "label"
+    environment: "Enterprise"
+    citation: "DARPA / MIT Lincoln Lab, 1999"
+
+  nsl_kdd:
+    name: "NSL-KDD"
+    tier: 1
+    download_method: "kaggle"
+    kaggle_dataset: "hassan06/nslkdd"
+    local_dir: "data/raw/nsl_kdd"
+    license: "Academic Use"
+    size_gb: 0.015
+    attack_types: ["DoS","Probe","R2L","U2R","Normal"]
+    label_column: "class"
+    environment: "Enterprise"
+    citation: "Tavallaee et al., 2009"
+
+  #  TIER 2 - IoT & Edge-Specific 
+
+  bot_iot:
+    name: "Bot-IoT"
+    tier: 2
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/cicbotiot"
+    local_dir: "data/raw/bot_iot"
+    license: "CC BY 4.0"
+    size_gb: 1.1
+    attack_types: ["DDoS","DoS","Reconnaissance","DataTheft","Keylogging","Normal"]
+    label_column: "attack"
+    environment: "IoT"
+    citation: "Koroniotis et al., 2019"
+
+  n_baiot:
+    name: "N-BaIoT"
+    tier: 2
+    download_method: "kaggle"
+    kaggle_dataset: "mkashifn/nbaiot-dataset"
+    local_dir: "data/raw/n_baiot"
+    license: "CC BY 4.0"
+    size_gb: 1.75
+    attack_types: ["Mirai","BASHLITE","Normal"]
+    label_column: "attack_label"
+    environment: "IoT"
+    citation: "Meidan et al., 2018"
+
+  mqttset:
+    name: "MQTTset"
+    tier: 2
+    download_method: "kaggle"
+    kaggle_dataset: "cnrieiit/mqttset"
+    local_dir: "data/raw/mqttset"
+    license: "CC BY 4.0"
+    size_gb: 0.86
+    attack_types: ["BruteForce","MalformedData","Flood","SlowITe","DoS","Normal"]
+    label_column: "target"
+    environment: "IoT"
+    citation: "Vaccari et al., 2020"
+
+  iot_23:
+    name: "IoT-23"
+    tier: 2
+    download_method: "direct"
+    urls:
+      - "https://mcfp.felk.cvut.cz/publicDatasets/IoT-23-Dataset/iot_23_datasets_small.tar.gz"
+    local_dir: "data/raw/iot_23"
+    license: "CC BY-NC-SA 4.0"
+    size_gb: 0.9
+    attack_types: ["Mirai","Torii","Okiru","IRCTelnet","Normal","C&C","FileDownload","Attack","HeartBeat","PortScan"]
+    label_column: "detailed-label"
+    environment: "IoT"
+    citation: "Garcia et al., 2020"
+
+  cic_iot2023:
+    name: "CIC-IoT2023"
+    tier: 2
+    download_method: "kaggle"
+    kaggle_dataset: "madhavmalhotra/unb-cic-iot-dataset"
+    local_dir: "data/raw/cic_iot2023"
+    license: "Academic Use"
+    size_gb: 2.78
+    attack_types: ["DDoS","DoS","Recon","WebBased","BruteForce","Spoofing","MITM","Normal"]
+    label_column: "Label"
+    environment: "IoT"
+    citation: "Neto et al., 2023"
+
+  edge_iiot:
+    name: "EdgeIIoT-Set"
+    tier: 2
+    download_method: "kaggle"
+    kaggle_dataset: "marajtalukder/edgeiiot"
+    local_dir: "data/raw/edge_iiot"
+    license: "CC BY 4.0"
+    size_gb: 1.63
+    attack_types: ["DataPoisoning","Ransomware","MITM","Injection","DoS","DDoS","PortScan","BruteForce","XSS","Backdoor","Normal"]
+    label_column: "Attack_type"
+    environment: "IoT"
+    citation: "Ferrag et al., 2022"
+
+  #  TIER 3 - SDN, Cloud & Application-Level 
+
+  insdn:
+    name: "InSDN"
+    tier: 3
+    download_method: "kaggle"
+    kaggle_dataset: "badcodebuilder/insdn-dataset"
+    local_dir: "data/raw/insdn"
+    license: "CC BY 4.0"
+    size_gb: 0.022
+    attack_types: ["DoS","Probe","R2L","U2R","Normal"]
+    label_column: "Label"
+    environment: "SDN"
+    citation: "El-Hady & Elsayed, 2020"
+
+  cic_ddos2019:
+    name: "CIC-DDoS2019"
+    tier: 3
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/cicddos2019"
+    local_dir: "data/raw/cic_ddos2019"
+    license: "Academic Use"
+    size_gb: 0.03
+    attack_types: ["DDoS-NTP","DDoS-DNS","DDoS-LDAP","DDoS-MSSQL","DDoS-NetBIOS","DDoS-UDP","DDoS-SYN","Normal"]
+    label_column: "Label"
+    environment: "Enterprise"
+    citation: "Sharafaldin et al., 2019"
+
+  hikari_2021:
+    name: "HIKARI-2021"
+    tier: 3
+    download_method: "kaggle"
+    kaggle_dataset: "kk0105/allflowmeter-hikari2021"
+    local_dir: "data/raw/hikari_2021"
+    license: "Academic Use"
+    size_gb: 0.072
+    attack_types: ["Botnet-C2-Encrypted","Normal"]
+    label_column: "Attack"
+    environment: "SDN"
+    citation: "Ferriyan et al., 2021"
+
+  beth:
+    name: "BETH Dataset"
+    tier: 3
+    download_method: "kaggle"
+    kaggle_dataset: "katehighnam/beth-dataset"
+    local_dir: "data/raw/beth"
+    license: "CC BY 4.0"
+    size_gb: 0.04
+    attack_types: ["Anomaly","Normal"]
+    label_column: "sus_label"
+    environment: "Host"
+    citation: "Highnam et al., 2021"
+
+  cidds_001:
+    name: "CIDDS-001"
+    tier: 3
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/cidds001"
+    local_dir: "data/raw/cidds_001"
+    license: "Academic Use"
+    size_gb: 0.2
+    attack_types: ["DoS","PortScan","PingScan","BruteForce","Normal"]
+    label_column: "class"
+    environment: "Enterprise"
+    citation: "Ring et al., 2017"
+
+  nf_unsw_nb15_v2:
+    name: "NF-UNSW-NB15-v2"
+    tier: 3
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/nfunswnb15v2"
+    local_dir: "data/raw/nf_unsw_nb15_v2"
+    license: "CC BY 4.0"
+    size_gb: 0.047
+    attack_types: ["Fuzzers","Analysis","Backdoors","DoS","Exploits","Generic","Reconnaissance","Shellcode","Worms","Normal"]
+    label_column: "Attack"
+    environment: "Enterprise"
+    citation: "Sarhan et al., 2021"
+
+  #  TIER 4 - Kaggle Community Datasets 
+
+  rt_iot2022:
+    name: "RT-IoT2022"
+    tier: 4
+    download_method: "kaggle"
+    kaggle_dataset: "bharathsimha/rt-iot2022"
+    local_dir: "data/raw/rt_iot2022"
+    license: "CC BY 4.0"
+    size_gb: 0.45
+    attack_types: ["MQTT_Publish","Thing_Speak","DDoS","Normal"]
+    label_column: "Attack_type"
+    environment: "IoT"
+    citation: "Sharmila & Nagapadma, 2023"
+
+  ddos_sdn:
+    name: "DDoS Attack SDN"
+    tier: 4
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/ddos-attack-dataset"
+    local_dir: "data/raw/ddos_sdn"
+    license: "CC0"
+    size_gb: 0.1
+    attack_types: ["DDoS","Normal"]
+    label_column: "label"
+    environment: "SDN"
+    citation: "Dhoogla, 2022"
+
+  network_intrusion_kaggle:
+    name: "Network Intrusion Detection (Kaggle)"
+    tier: 4
+    download_method: "kaggle"
+    kaggle_dataset: "sampadab17/network-intrusion-detection"
+    local_dir: "data/raw/network_intrusion_kaggle"
+    license: "CC BY 4.0"
+    size_gb: 0.05
+    attack_types: ["DoS","Probe","R2L","U2R","Normal"]
+    label_column: "class"
+    environment: "Enterprise"
+    citation: "Sampadab17, 2020"
+
+  nbaiot_extra:
+    name: "N-BaIoT Extra (DDoS Botnet IoT)"
+    tier: 4
+    download_method: "kaggle"
+    kaggle_dataset: "siddharthm1698/ddos-botnet-attack-on-iot-devices"
+    local_dir: "data/raw/nbaiot_extra"
+    license: "CC BY 4.0"
+    size_gb: 0.001
+    attack_types: ["DDoS","Botnet","Normal"]
+    label_column: "label"
+    environment: "IoT"
+    citation: "Siddharth M, 2020"
+
+  nf_bot_iot:
+    name: "NF-BoT-IoT-V2"
+    tier: 4
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/nfbotiotv2"
+    local_dir: "data/raw/nf_bot_iot"
+    license: "CC BY 4.0"
+    size_gb: 0.42
+    attack_types: ["DDoS","DoS","Reconnaissance","Theft","Normal"]
+    label_column: "Attack"
+    environment: "IoT"
+    citation: "Sarhan et al., 2021"
+
+  nf_ton_iot:
+    name: "NF-ToN-IoT-V2"
+    tier: 4
+    download_method: "kaggle"
+    kaggle_dataset: "dhoogla/nftoniotv2"
+    local_dir: "data/raw/nf_ton_iot"
+    license: "CC BY 4.0"
+    size_gb: 0.17
+    attack_types: ["Scanning","DoS","DDoS","Ransomware","Backdoor","Injection","MITM","Normal"]
+    label_column: "Attack"
+    environment: "IoT"
+    citation: "Sarhan et al., 2021"

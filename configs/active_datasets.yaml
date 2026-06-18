@@ -1,0 +1,116 @@
+datasets:
+  cic_ids2018:
+    name: "CIC-IDS2018"
+    local_dir: "data/raw/cic_ids2018"
+    file_patterns:
+      - "*.parquet"
+    label_column: "Label"
+    attack_column: "Label"
+    environment: "Enterprise"
+
+  ton_iot:
+    name: "TON_IoT"
+    local_dir: "data/raw/ton_iot"
+    file_patterns:
+      - "TON_IoT_Train_Test_Network.csv"
+    label_column: "label"
+    attack_column: "type"
+    environment: "IoT"
+
+  unsw_nb15:
+    name: "UNSW-NB15"
+    local_dir: "data/raw/unsw_nb15"
+    file_patterns:
+      - "UNSW_NB15_training-set.csv"
+      - "UNSW_NB15_testing-set.csv"
+    label_column: "label"
+    attack_column: "attack_cat"
+    environment: "Enterprise"
+
+  kdd_cup_1999:
+    name: "KDD Cup 1999"
+    local_dir: "data/raw/kdd_cup_1999"
+    file_patterns:
+      - "kddcup.data_10_percent_corrected"
+    format: "kdd"
+    label_column: "attack"
+    attack_column: "attack"
+    environment: "Enterprise"
+
+  nsl_kdd:
+    name: "NSL-KDD"
+    local_dir: "data/raw/nsl_kdd"
+    file_patterns:
+      - "KDDTrain+.txt"
+      - "KDDTest+.txt"
+    format: "nsl_kdd"
+    label_column: "attack"
+    attack_column: "attack"
+    environment: "Enterprise"
+
+  bot_iot:
+    name: "Bot-IoT"
+    local_dir: "data/raw/bot_iot"
+    file_patterns:
+      - "CIC-BoT-IoT-V2.parquet"
+    label_column: "Label"
+    attack_column: "Attack"
+    environment: "IoT"
+
+  mqttset:
+    name: "MQTTset"
+    local_dir: "data/raw/mqttset"
+    file_patterns:
+      - "mqttdataset_reduced.csv"
+      - "train70_reduced.csv"
+      - "test30_reduced.csv"
+    label_column: "target"
+    attack_column: "target"
+    environment: "IoT"
+
+  insdn:
+    name: "InSDN"
+    local_dir: "data/raw/insdn"
+    file_patterns:
+      - "InSDN_DatasetCSV/*.csv"
+    label_column: "Label"
+    attack_column: "Label"
+    environment: "SDN"
+
+  cic_ddos2019:
+    name: "CIC-DDoS2019"
+    local_dir: "data/raw/cic_ddos2019"
+    file_patterns:
+      - "*.parquet"
+    label_column: "Label"
+    attack_column: "Label"
+    environment: "Enterprise"
+
+  hikari_2021:
+    name: "HIKARI-2021"
+    local_dir: "data/raw/hikari_2021"
+    file_patterns:
+      - "ALLFLOWMETER_HIKARI2021.csv"
+    label_column: "Label"
+    attack_column: "traffic_category"
+    environment: "SDN"
+
+  beth:
+    name: "BETH Dataset"
+    local_dir: "data/raw/beth"
+    file_patterns:
+      - "labelled_training_data.csv"
+      - "labelled_validation_data.csv"
+      - "labelled_testing_data.csv"
+    label_column: "evil"
+    attack_column: "eventName"
+    auxiliary_label_columns:
+      - "sus"
+    environment: "Host"
+
+skipped_datasets:
+  cic_ids2017: "Local MachineLearningCSV.zip is corrupt; download/extract again before enabling."
+  n_baiot: "Local nbaiot-dataset.zip is corrupt; download/extract again before enabling."
+  iot_23: "Local archive is partial/truncated after network failures."
+  cic_iot2023: "Skipped by request because download repeatedly fails."
+  edge_iiot: "Not present locally yet."

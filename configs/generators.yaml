@@ -1,0 +1,35 @@
+default_generator: conditioned_statistical_bootstrap
+
+conditioned_statistical_bootstrap:
+  input: data/processed/train.parquet
+  output: data/synthetic/synthetic_dataset_v1.0.parquet
+  summary_output: data/synthetic/synthetic_dataset_v1.0_summary.json
+  rows: 500000
+  mode: label_balanced
+  minimum_per_category: 100
+  noise_scale: 0.08
+  clip_quantile: 0.005
+  random_state: 42
+  drop_exact_matches: true
+
+planned_neural_generators:
+  ctgan:
+    library: sdv
+    epochs: 300
+    batch_size: 500
+    pac: 10
+    generator_dim: [256, 256]
+    discriminator_dim: [256, 256]
+    status: planned
+  tvae:
+    library: sdv
+    epochs: 300
+    batch_size: 500
+    embedding_dim: 128
+    compress_dims: [256, 128, 64]
+    decompress_dims: [64, 128, 256]
+    status: planned
+  gaussian_copula:
+    library: copulas
+    fit_scope: attack_subcategory
+    status: planned

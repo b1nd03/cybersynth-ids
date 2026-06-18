@@ -1,0 +1,33 @@
+real_train: data/processed/train.parquet
+real_val: data/processed/val.parquet
+real_test: data/processed/test.parquet
+synthetic: data/synthetic/synthetic_dataset_v1.0.parquet
+output_dir: outputs/reports
+
+metrics:
+  fidelity:
+    max_rows: 20000
+    histogram_bins: 30
+    ks_failure_pvalue: 0.05
+  utility:
+    model: LightGBMClassifier
+    protocols: [real_only, synthetic_only, augmented]
+    bootstrap_rounds: 100
+    confidence_level: 0.95
+  privacy:
+    max_rows: 5000
+    dcr_target: 0.25
+    quasi_identifiers:
+      - protocol
+      - service
+      - dst_port
+      - attack_category
+
+targets:
+  minimum_acceptable:
+    f1_binary: 0.85
+    auc_roc: 0.90
+  research_grade:
+    f1_binary: 0.92
+    auc_roc: 0.96
+    false_positive_rate_max: 0.02

@@ -1,0 +1,1004 @@
+{
+  "model": "LightGBMClassifier",
+  "target": "binary_label",
+  "training_strategy": "lightgbm_early_stopping_threshold_tuning",
+  "selected_candidate": "deeper_recall",
+  "candidate_results": [
+    {
+      "name": "regularized_balanced",
+      "best_iteration": 1189,
+      "validation_default_f1": 0.9919702947319564,
+      "validation_tuned_threshold": {
+        "threshold": 0.5158798866430181,
+        "precision": 0.9915545243619489,
+        "recall": 0.9925217148961866,
+        "f1": 0.9920378838877412
+      },
+      "params": {
+        "objective": "binary",
+        "boosting_type": "gbdt",
+        "n_estimators": 1200,
+        "learning_rate": 0.035,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "random_state": 42,
+        "n_jobs": -1,
+        "verbose": -1,
+        "num_leaves": 63,
+        "min_child_samples": 80,
+        "reg_alpha": 0.05,
+        "reg_lambda": 2.0,
+        "class_weight": "balanced"
+      }
+    },
+    {
+      "name": "plain_probability",
+      "best_iteration": 1196,
+      "validation_default_f1": 0.9918483940639587,
+      "validation_tuned_threshold": {
+        "threshold": 0.4579012484443254,
+        "precision": 0.9914161098737936,
+        "recall": 0.9924752659203865,
+        "f1": 0.991945405167011
+      },
+      "params": {
+        "objective": "binary",
+        "boosting_type": "gbdt",
+        "n_estimators": 1200,
+        "learning_rate": 0.035,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "random_state": 42,
+        "n_jobs": -1,
+        "verbose": -1,
+        "num_leaves": 63,
+        "min_child_samples": 80,
+        "reg_alpha": 0.05,
+        "reg_lambda": 2.0
+      }
+    },
+    {
+      "name": "deeper_recall",
+      "best_iteration": 612,
+      "validation_default_f1": 0.9921548602729552,
+      "validation_tuned_threshold": {
+        "threshold": 0.5025436211906869,
+        "precision": 0.9916024867773963,
+        "recall": 0.992753959775187,
+        "f1": 0.992177889190632
+      },
+      "params": {
+        "objective": "binary",
+        "boosting_type": "gbdt",
+        "n_estimators": 1200,
+        "learning_rate": 0.035,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "random_state": 42,
+        "n_jobs": -1,
+        "verbose": -1,
+        "num_leaves": 127,
+        "min_child_samples": 40,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "class_weight": "balanced"
+      }
+    }
+  ],
+  "decision_threshold": 0.5025436211906869,
+  "threshold_tuning": {
+    "threshold": 0.5025436211906869,
+    "precision": 0.9916024867773963,
+    "recall": 0.992753959775187,
+    "f1": 0.992177889190632
+  },
+  "feature_columns": [
+    "protocol",
+    "service",
+    "duration",
+    "src_port",
+    "dst_port",
+    "src_bytes",
+    "dst_bytes",
+    "total_packets_fwd",
+    "total_packets_bwd",
+    "packet_length_mean",
+    "packet_length_std",
+    "packet_length_min",
+    "packet_length_max",
+    "flow_bytes_per_sec",
+    "flow_packets_per_sec",
+    "fwd_iat_mean",
+    "bwd_iat_mean",
+    "fwd_iat_std",
+    "bwd_iat_std",
+    "fin_flag_count",
+    "syn_flag_count",
+    "rst_flag_count",
+    "psh_flag_count",
+    "ack_flag_count",
+    "urg_flag_count",
+    "cwe_flag_count",
+    "ece_flag_count",
+    "fwd_header_length",
+    "bwd_header_length",
+    "active_mean",
+    "active_std",
+    "idle_mean",
+    "idle_std",
+    "bytes_per_packet_ratio",
+    "down_up_ratio",
+    "avg_fwd_segment_size",
+    "avg_bwd_segment_size",
+    "subflow_fwd_bytes",
+    "subflow_bwd_bytes"
+  ],
+  "numeric_feature_columns": [
+    "duration",
+    "src_port",
+    "dst_port",
+    "src_bytes",
+    "dst_bytes",
+    "total_packets_fwd",
+    "total_packets_bwd",
+    "packet_length_mean",
+    "packet_length_std",
+    "packet_length_min",
+    "packet_length_max",
+    "flow_bytes_per_sec",
+    "flow_packets_per_sec",
+    "fwd_iat_mean",
+    "bwd_iat_mean",
+    "fwd_iat_std",
+    "bwd_iat_std",
+    "fin_flag_count",
+    "syn_flag_count",
+    "rst_flag_count",
+    "psh_flag_count",
+    "ack_flag_count",
+    "urg_flag_count",
+    "cwe_flag_count",
+    "ece_flag_count",
+    "fwd_header_length",
+    "bwd_header_length",
+    "active_mean",
+    "active_std",
+    "idle_mean",
+    "idle_std",
+    "bytes_per_packet_ratio",
+    "down_up_ratio",
+    "avg_fwd_segment_size",
+    "avg_bwd_segment_size",
+    "subflow_fwd_bytes",
+    "subflow_bwd_bytes"
+  ],
+  "categorical_feature_columns": [
+    "protocol",
+    "service"
+  ],
+  "dropped_empty_feature_columns": [
+    "bulk_rate_fwd",
+    "bulk_rate_bwd"
+  ],
+  "feature_importance": {
+    "top_transformed": [
+      {
+        "feature": "numeric__duration",
+        "gain": 1485850.4286058396
+      },
+      {
+        "feature": "numeric__dst_bytes",
+        "gain": 261261.65356218815
+      },
+      {
+        "feature": "categorical__protocol_MQTT",
+        "gain": 185156.70796468854
+      },
+      {
+        "feature": "numeric__src_bytes",
+        "gain": 169168.62764255702
+      },
+      {
+        "feature": "numeric__packet_length_mean",
+        "gain": 166593.14072217047
+      },
+      {
+        "feature": "numeric__total_packets_fwd",
+        "gain": 139522.66884997487
+      },
+      {
+        "feature": "numeric__packet_length_min",
+        "gain": 129688.15224285424
+      },
+      {
+        "feature": "numeric__src_port",
+        "gain": 123133.95084965229
+      },
+      {
+        "feature": "categorical__service_",
+        "gain": 117142.37562033534
+      },
+      {
+        "feature": "numeric__total_packets_bwd",
+        "gain": 97973.29682123661
+      },
+      {
+        "feature": "numeric__flow_bytes_per_sec",
+        "gain": 85034.28815035522
+      },
+      {
+        "feature": "numeric__packet_length_max",
+        "gain": 77317.82306559384
+      },
+      {
+        "feature": "numeric__dst_port",
+        "gain": 68586.79710750282
+      },
+      {
+        "feature": "numeric__avg_fwd_segment_size",
+        "gain": 60675.203779801726
+      },
+      {
+        "feature": "numeric__fwd_header_length",
+        "gain": 58572.684667915106
+      },
+      {
+        "feature": "numeric__urg_flag_count",
+        "gain": 58304.759597331285
+      },
+      {
+        "feature": "numeric__active_mean",
+        "gain": 47497.50969840586
+      },
+      {
+        "feature": "numeric__bytes_per_packet_ratio",
+        "gain": 46242.3077853024
+      },
+      {
+        "feature": "numeric__fwd_iat_std",
+        "gain": 43415.732982978225
+      },
+      {
+        "feature": "numeric__idle_std",
+        "gain": 41872.072492957115
+      },
+      {
+        "feature": "numeric__subflow_fwd_bytes",
+        "gain": 41175.28654047847
+      },
+      {
+        "feature": "numeric__bwd_header_length",
+        "gain": 39277.72581349313
+      },
+      {
+        "feature": "numeric__packet_length_std",
+        "gain": 37212.241735219955
+      },
+      {
+        "feature": "numeric__fwd_iat_mean",
+        "gain": 34657.90153391659
+      },
+      {
+        "feature": "numeric__flow_packets_per_sec",
+        "gain": 34283.12670609355
+      },
+      {
+        "feature": "numeric__avg_bwd_segment_size",
+        "gain": 31791.38019642234
+      },
+      {
+        "feature": "numeric__idle_mean",
+        "gain": 26209.706089615822
+      },
+      {
+        "feature": "numeric__down_up_ratio",
+        "gain": 25380.784178972244
+      },
+      {
+        "feature": "numeric__ack_flag_count",
+        "gain": 24564.801265731454
+      },
+      {
+        "feature": "numeric__subflow_bwd_bytes",
+        "gain": 23920.685733556747
+      }
+    ],
+    "top_original": [
+      {
+        "feature": "duration",
+        "gain": 1485850.4286058396
+      },
+      {
+        "feature": "dst_bytes",
+        "gain": 261261.65356218815
+      },
+      {
+        "feature": "protocol",
+        "gain": 228438.32535853982
+      },
+      {
+        "feature": "src_bytes",
+        "gain": 169168.62764255702
+      },
+      {
+        "feature": "packet_length_mean",
+        "gain": 166593.14072217047
+      },
+      {
+        "feature": "service",
+        "gain": 166119.37382659316
+      },
+      {
+        "feature": "total_packets_fwd",
+        "gain": 139522.66884997487
+      },
+      {
+        "feature": "packet_length_min",
+        "gain": 129688.15224285424
+      },
+      {
+        "feature": "src_port",
+        "gain": 123133.95084965229
+      },
+      {
+        "feature": "total_packets_bwd",
+        "gain": 97973.29682123661
+      },
+      {
+        "feature": "flow_bytes_per_sec",
+        "gain": 85034.28815035522
+      },
+      {
+        "feature": "packet_length_max",
+        "gain": 77317.82306559384
+      },
+      {
+        "feature": "dst_port",
+        "gain": 68586.79710750282
+      },
+      {
+        "feature": "avg_fwd_segment_size",
+        "gain": 60675.203779801726
+      },
+      {
+        "feature": "fwd_header_length",
+        "gain": 58572.684667915106
+      },
+      {
+        "feature": "urg_flag_count",
+        "gain": 58304.759597331285
+      },
+      {
+        "feature": "active_mean",
+        "gain": 47497.50969840586
+      },
+      {
+        "feature": "bytes_per_packet_ratio",
+        "gain": 46242.3077853024
+      },
+      {
+        "feature": "fwd_iat_std",
+        "gain": 43415.732982978225
+      },
+      {
+        "feature": "idle_std",
+        "gain": 41872.072492957115
+      },
+      {
+        "feature": "subflow_fwd_bytes",
+        "gain": 41175.28654047847
+      },
+      {
+        "feature": "bwd_header_length",
+        "gain": 39277.72581349313
+      },
+      {
+        "feature": "packet_length_std",
+        "gain": 37212.241735219955
+      },
+      {
+        "feature": "fwd_iat_mean",
+        "gain": 34657.90153391659
+      },
+      {
+        "feature": "flow_packets_per_sec",
+        "gain": 34283.12670609355
+      },
+      {
+        "feature": "avg_bwd_segment_size",
+        "gain": 31791.38019642234
+      },
+      {
+        "feature": "idle_mean",
+        "gain": 26209.706089615822
+      },
+      {
+        "feature": "down_up_ratio",
+        "gain": 25380.784178972244
+      },
+      {
+        "feature": "ack_flag_count",
+        "gain": 24564.801265731454
+      },
+      {
+        "feature": "subflow_bwd_bytes",
+        "gain": 23920.685733556747
+      }
+    ]
+  },
+  "train_rows": 220378,
+  "val": {
+    "split": "val",
+    "rows": 47224,
+    "decision_threshold": 0.5025436211906869,
+    "accuracy": 0.9928637980687786,
+    "precision": 0.9916024867773963,
+    "recall": 0.992753959775187,
+    "f1": 0.992177889190632,
+    "confusion_matrix": [
+      [
+        25514,
+        181
+      ],
+      [
+        156,
+        21373
+      ]
+    ],
+    "classification_report": {
+      "Normal": {
+        "precision": 0.993922867160109,
+        "recall": 0.9929558279820977,
+        "f1-score": 0.9934391122359584,
+        "support": 25695.0
+      },
+      "Attack": {
+        "precision": 0.9916024867773963,
+        "recall": 0.992753959775187,
+        "f1-score": 0.992177889190632,
+        "support": 21529.0
+      },
+      "accuracy": 0.9928637980687786,
+      "macro avg": {
+        "precision": 0.9927626769687526,
+        "recall": 0.9928548938786423,
+        "f1-score": 0.9928085007132952,
+        "support": 47224.0
+      },
+      "weighted avg": {
+        "precision": 0.9928650264592065,
+        "recall": 0.9928637980687786,
+        "f1-score": 0.9928641319093695,
+        "support": 47224.0
+      }
+    },
+    "roc_auc": 0.9997472403826508,
+    "average_precision": 0.9997009272632376,
+    "attack_category_metrics": [
+      {
+        "attack_category": "Normal",
+        "rows": 25695,
+        "label": 0,
+        "mean_attack_probability": 0.010921053738695868,
+        "false_positive_rate": 0.0070441720179023155,
+        "specificity": 0.9929558279820977
+      },
+      {
+        "attack_category": "DDoS",
+        "rows": 9691,
+        "label": 1,
+        "mean_attack_probability": 0.997636021128503,
+        "detection_rate": 0.9981426065421525
+      },
+      {
+        "attack_category": "DoS",
+        "rows": 5135,
+        "label": 1,
+        "mean_attack_probability": 0.9963593769054525,
+        "detection_rate": 0.9990262901655307
+      },
+      {
+        "attack_category": "BruteForce",
+        "rows": 2907,
+        "label": 1,
+        "mean_attack_probability": 0.9769601441086222,
+        "detection_rate": 0.9803921568627451
+      },
+      {
+        "attack_category": "Reconnaissance",
+        "rows": 1980,
+        "label": 1,
+        "mean_attack_probability": 0.9902793250636692,
+        "detection_rate": 0.9964646464646465
+      },
+      {
+        "attack_category": "Exploits",
+        "rows": 523,
+        "label": 1,
+        "mean_attack_probability": 0.9676103546049771,
+        "detection_rate": 0.988527724665392
+      },
+      {
+        "attack_category": "Botnet",
+        "rows": 522,
+        "label": 1,
+        "mean_attack_probability": 0.9886392539227025,
+        "detection_rate": 0.9980842911877394
+      },
+      {
+        "attack_category": "malformed",
+        "rows": 172,
+        "label": 1,
+        "mean_attack_probability": 0.9172571616571362,
+        "detection_rate": 0.9127906976744186
+      },
+      {
+        "attack_category": "Fuzzers",
+        "rows": 122,
+        "label": 1,
+        "mean_attack_probability": 0.8361323529427773,
+        "detection_rate": 0.8688524590163934
+      },
+      {
+        "attack_category": "slowite",
+        "rows": 117,
+        "label": 1,
+        "mean_attack_probability": 0.9691148529779986,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Probe",
+        "rows": 71,
+        "label": 1,
+        "mean_attack_probability": 0.9310482606201659,
+        "detection_rate": 0.971830985915493
+      },
+      {
+        "attack_category": "processtable",
+        "rows": 54,
+        "label": 1,
+        "mean_attack_probability": 0.998564805974135,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "R2L",
+        "rows": 51,
+        "label": 1,
+        "mean_attack_probability": 0.8640004042418682,
+        "detection_rate": 0.9019607843137255
+      },
+      {
+        "attack_category": "apache2",
+        "rows": 48,
+        "label": 1,
+        "mean_attack_probability": 0.9992402261988023,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Shellcode",
+        "rows": 23,
+        "label": 1,
+        "mean_attack_probability": 0.7497594138810442,
+        "detection_rate": 0.8695652173913043
+      },
+      {
+        "attack_category": "Analysis",
+        "rows": 21,
+        "label": 1,
+        "mean_attack_probability": 0.9976817337483151,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Generic",
+        "rows": 20,
+        "label": 1,
+        "mean_attack_probability": 0.9235640257513664,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "WebAttack",
+        "rows": 13,
+        "label": 1,
+        "mean_attack_probability": 0.7419879808824972,
+        "detection_rate": 0.7692307692307693
+      },
+      {
+        "attack_category": "U2R",
+        "rows": 9,
+        "label": 1,
+        "mean_attack_probability": 0.739393801214184,
+        "detection_rate": 0.8888888888888888
+      },
+      {
+        "attack_category": "Backdoor",
+        "rows": 8,
+        "label": 1,
+        "mean_attack_probability": 0.987180825085233,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Anomaly",
+        "rows": 7,
+        "label": 1,
+        "mean_attack_probability": 0.9462350907873319,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "flood",
+        "rows": 7,
+        "label": 1,
+        "mean_attack_probability": 0.8435552495457473,
+        "detection_rate": 0.8571428571428571
+      },
+      {
+        "attack_category": "snmpguess",
+        "rows": 5,
+        "label": 1,
+        "mean_attack_probability": 0.27511806111521425,
+        "detection_rate": 0.2
+      },
+      {
+        "attack_category": "saint",
+        "rows": 4,
+        "label": 1,
+        "mean_attack_probability": 0.6339976205577162,
+        "detection_rate": 0.75
+      },
+      {
+        "attack_category": "Worms",
+        "rows": 3,
+        "label": 1,
+        "mean_attack_probability": 0.726666812124546,
+        "detection_rate": 0.6666666666666666
+      },
+      {
+        "attack_category": "httptunnel",
+        "rows": 3,
+        "label": 1,
+        "mean_attack_probability": 0.1655787285107136,
+        "detection_rate": 0.0
+      },
+      {
+        "attack_category": "sendmail",
+        "rows": 3,
+        "label": 1,
+        "mean_attack_probability": 0.2693891150267925,
+        "detection_rate": 0.3333333333333333
+      },
+      {
+        "attack_category": "named",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.45291506294586037,
+        "detection_rate": 0.5
+      },
+      {
+        "attack_category": "ps",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.3381046657628377,
+        "detection_rate": 0.0
+      },
+      {
+        "attack_category": "snmpgetattack",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.3018163500119148,
+        "detection_rate": 0.0
+      },
+      {
+        "attack_category": "xterm",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.8690574801319146,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "worm",
+        "rows": 1,
+        "label": 1,
+        "mean_attack_probability": 0.8058952803511206,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "xsnoop",
+        "rows": 1,
+        "label": 1,
+        "mean_attack_probability": 0.7869411390889021,
+        "detection_rate": 1.0
+      }
+    ]
+  },
+  "test": {
+    "split": "test",
+    "rows": 47225,
+    "decision_threshold": 0.5025436211906869,
+    "accuracy": 0.9926733721545792,
+    "precision": 0.9919190042727104,
+    "recall": 0.9920111472364143,
+    "f1": 0.991965073614788,
+    "confusion_matrix": [
+      [
+        25521,
+        174
+      ],
+      [
+        172,
+        21358
+      ]
+    ],
+    "classification_report": {
+      "Normal": {
+        "precision": 0.9933055696103997,
+        "recall": 0.9932282545242265,
+        "f1-score": 0.9932669105627773,
+        "support": 25695.0
+      },
+      "Attack": {
+        "precision": 0.9919190042727104,
+        "recall": 0.9920111472364143,
+        "f1-score": 0.991965073614788,
+        "support": 21530.0
+      },
+      "accuracy": 0.9926733721545792,
+      "macro avg": {
+        "precision": 0.992612286941555,
+        "recall": 0.9926197008803204,
+        "f1-score": 0.9926159920887827,
+        "support": 47225.0
+      },
+      "weighted avg": {
+        "precision": 0.9926734308762452,
+        "recall": 0.9926733721545792,
+        "f1-score": 0.9926733997212694,
+        "support": 47225.0
+      }
+    },
+    "roc_auc": 0.9997515144925552,
+    "average_precision": 0.9997068809466411,
+    "attack_category_metrics": [
+      {
+        "attack_category": "Normal",
+        "rows": 25695,
+        "label": 0,
+        "mean_attack_probability": 0.01035209278657506,
+        "false_positive_rate": 0.006771745475773497,
+        "specificity": 0.9932282545242265
+      },
+      {
+        "attack_category": "DDoS",
+        "rows": 9692,
+        "label": 1,
+        "mean_attack_probability": 0.9978300254167953,
+        "detection_rate": 0.9985555096987206
+      },
+      {
+        "attack_category": "DoS",
+        "rows": 5136,
+        "label": 1,
+        "mean_attack_probability": 0.9954992812599972,
+        "detection_rate": 0.9980529595015576
+      },
+      {
+        "attack_category": "BruteForce",
+        "rows": 2907,
+        "label": 1,
+        "mean_attack_probability": 0.9770777389084474,
+        "detection_rate": 0.9797041623667011
+      },
+      {
+        "attack_category": "Reconnaissance",
+        "rows": 1980,
+        "label": 1,
+        "mean_attack_probability": 0.9902679601209448,
+        "detection_rate": 0.9964646464646465
+      },
+      {
+        "attack_category": "Exploits",
+        "rows": 523,
+        "label": 1,
+        "mean_attack_probability": 0.9610928221286219,
+        "detection_rate": 0.9770554493307839
+      },
+      {
+        "attack_category": "Botnet",
+        "rows": 522,
+        "label": 1,
+        "mean_attack_probability": 0.9860367066092093,
+        "detection_rate": 0.9980842911877394
+      },
+      {
+        "attack_category": "malformed",
+        "rows": 172,
+        "label": 1,
+        "mean_attack_probability": 0.9035542554544507,
+        "detection_rate": 0.8895348837209303
+      },
+      {
+        "attack_category": "Fuzzers",
+        "rows": 123,
+        "label": 1,
+        "mean_attack_probability": 0.8337539037837194,
+        "detection_rate": 0.8536585365853658
+      },
+      {
+        "attack_category": "slowite",
+        "rows": 118,
+        "label": 1,
+        "mean_attack_probability": 0.9666388762426978,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Probe",
+        "rows": 71,
+        "label": 1,
+        "mean_attack_probability": 0.930754985393599,
+        "detection_rate": 0.971830985915493
+      },
+      {
+        "attack_category": "processtable",
+        "rows": 54,
+        "label": 1,
+        "mean_attack_probability": 0.9977573177835489,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "R2L",
+        "rows": 52,
+        "label": 1,
+        "mean_attack_probability": 0.7785833625932344,
+        "detection_rate": 0.7884615384615384
+      },
+      {
+        "attack_category": "apache2",
+        "rows": 49,
+        "label": 1,
+        "mean_attack_probability": 0.9778316046657498,
+        "detection_rate": 0.9795918367346939
+      },
+      {
+        "attack_category": "Shellcode",
+        "rows": 23,
+        "label": 1,
+        "mean_attack_probability": 0.7965622883542313,
+        "detection_rate": 0.9130434782608695
+      },
+      {
+        "attack_category": "Analysis",
+        "rows": 20,
+        "label": 1,
+        "mean_attack_probability": 0.997707675470366,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Generic",
+        "rows": 20,
+        "label": 1,
+        "mean_attack_probability": 0.8883303933231644,
+        "detection_rate": 0.95
+      },
+      {
+        "attack_category": "WebAttack",
+        "rows": 12,
+        "label": 1,
+        "mean_attack_probability": 0.774155197933907,
+        "detection_rate": 0.75
+      },
+      {
+        "attack_category": "U2R",
+        "rows": 8,
+        "label": 1,
+        "mean_attack_probability": 0.5230913159202368,
+        "detection_rate": 0.625
+      },
+      {
+        "attack_category": "Anomaly",
+        "rows": 7,
+        "label": 1,
+        "mean_attack_probability": 0.9462350907873319,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "Backdoor",
+        "rows": 7,
+        "label": 1,
+        "mean_attack_probability": 0.8991580124002647,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "flood",
+        "rows": 7,
+        "label": 1,
+        "mean_attack_probability": 0.9301108832816648,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "saint",
+        "rows": 4,
+        "label": 1,
+        "mean_attack_probability": 0.8093193349802621,
+        "detection_rate": 0.75
+      },
+      {
+        "attack_category": "snmpguess",
+        "rows": 4,
+        "label": 1,
+        "mean_attack_probability": 0.6162458391945553,
+        "detection_rate": 0.75
+      },
+      {
+        "attack_category": "Worms",
+        "rows": 3,
+        "label": 1,
+        "mean_attack_probability": 0.9886105522071952,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "httptunnel",
+        "rows": 3,
+        "label": 1,
+        "mean_attack_probability": 0.8510376740238188,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "named",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.9899249832279792,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "ps",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.4241942477351776,
+        "detection_rate": 0.0
+      },
+      {
+        "attack_category": "snmpgetattack",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.13919241571867272,
+        "detection_rate": 0.0
+      },
+      {
+        "attack_category": "xlock",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.06417307820505573,
+        "detection_rate": 0.0
+      },
+      {
+        "attack_category": "xterm",
+        "rows": 2,
+        "label": 1,
+        "mean_attack_probability": 0.49660639240268306,
+        "detection_rate": 0.5
+      },
+      {
+        "attack_category": "Theft",
+        "rows": 1,
+        "label": 1,
+        "mean_attack_probability": 0.9993541329265135,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "mailbomb",
+        "rows": 1,
+        "label": 1,
+        "mean_attack_probability": 0.8090617866223891,
+        "detection_rate": 1.0
+      },
+      {
+        "attack_category": "worm",
+        "rows": 1,
+        "label": 1,
+        "mean_attack_probability": 0.8058952803511206,
+        "detection_rate": 1.0
+      }
+    ]
+  }
+}
