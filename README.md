@@ -2,6 +2,20 @@
 
 CyberSynth IDS is a local web tool for cybersecurity dataset experiments. It prepares network-flow datasets, trains a baseline intrusion detection model, generates filtered synthetic rows, validates uploaded CSV files, and shows model results through a FastAPI dashboard.
 
+## Screenshots
+
+| Overview | Predict |
+|---|---|
+| ![Overview dashboard](docs/screenshots/overview.png) | ![Single-flow prediction](docs/screenshots/predict.png) |
+
+| Upload CSV | Results |
+|---|---|
+| ![CSV upload validation](docs/screenshots/upload_csv.png) | ![Model results](docs/screenshots/results.png) |
+
+| Explainability | Drift |
+|---|---|
+| ![Prediction explanation](docs/screenshots/explain.png) | ![Data drift monitor](docs/screenshots/drift.png) |
+
 ## Highlights
 
 - FastAPI dashboard for IDS prediction, CSV upload, synthetic dataset creation, results, explainability, and drift checks.
@@ -18,11 +32,29 @@ Uploaded CSV files are validated against the trained feature set before scoring.
 
 The synthetic generator uses the training profile to create filtered experiment data while reducing exact real-row matches.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    Raw[Raw IDS datasets] --> Prep[Preprocessing and schema mapping]
+    Prep --> Split[Train and test splits]
+    Split --> Model[LightGBM IDS model]
+    Split --> Gen[Synthetic data generator]
+    Model --> API[FastAPI backend]
+    Gen --> API
+    API --> UI[Web dashboard]
+    UI --> Predict[Flow prediction]
+    UI --> Upload[CSV validation and scoring]
+    UI --> Explain[SHAP explanation]
+    UI --> Drift[PSI drift monitoring]
+```
+
 ## Project Layout
 
 ```text
 configs/              Dataset and experiment configuration
 docs/                 Project notes for model behavior
+docs/screenshots/     Dashboard screenshots for the README
 src/ingestion/         Preprocessing and train/test split scripts
 src/evaluation/        Model training and synthetic-data evaluation scripts
 src/generation/        Synthetic dataset generator
@@ -116,5 +148,15 @@ pytest -q
 ## Deployment
 
 Use Docker for the public version because the app serves local model, metrics, and dataset artifacts. See `DEPLOYMENT.md` for the Docker and GitHub checklist.
+
+## Documentation
+
+- `MODEL_CARD.md` describes the baseline IDS model.
+- `dataset_card.md` describes the generated dataset artifact.
+- `DEPLOYMENT.md` describes the Docker release workflow.
+
+## License
+
+MIT License.
 
 For deployment settings, copy `.env.example` to `.env` and set API keys, admin token, CORS origins, model hash, upload size, rate limits, and runtime limits as needed.
